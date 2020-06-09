@@ -58,7 +58,6 @@ def _indexOfPImpl(just, nothing, x, startAt, s: str):
 
 
 def _indexOfStartingAtImpl(just, nothing, x, startAt, s):
-    print(x, startAt, s)
     if startAt < 0 or startAt > len(s):
         return nothing
     i = s.find(x, startAt)
