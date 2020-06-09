@@ -53,3 +53,21 @@ def _toCodePointArray(fallback):
         return lambda s: list(map(unsafeCodePointAt0, s))
 
     return ap
+
+
+def _countPrefix(fallback):
+    def unsafeCodePointAt0_(unsafeCodePointAt0):
+        def pred_(pred):
+            def str_(s):
+                count = 0
+                for x in s:
+                    if not pred(x):
+                        return count
+                    else:
+                        count += 1
+
+            return str_
+
+        return pred_
+
+    return unsafeCodePointAt0_
