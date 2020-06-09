@@ -5,7 +5,7 @@ def _unsafeCodePointAt0(fallback):
     return ap
 
 
-def _codePointAt(fallback, just, nothing, unsafeCodePointAt0, index, s):
+def _codePointAtImpl(fallback, just, nothing, unsafeCodePointAt0, index, s):
     length = len(s)
     if index < 0 or index >= length:
         return nothing

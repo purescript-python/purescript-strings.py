@@ -77,7 +77,7 @@ def take(n: int):
     return lambda s: s[:n]
 
 def drop(n: int):
-    return lambda s: [n:]
+    return lambda s: s[n:]
 
 
 def _slice(b):
