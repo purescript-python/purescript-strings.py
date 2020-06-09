@@ -66,7 +66,7 @@ def _indexOfStartingAtImpl(just, nothing, x, startAt, s):
 
 globals()[
     "_indexOf'"
-] = lambda just: lambda nothing: lambda startAt: lambda x: lambda s: _indexOfStartingAtImpl(
+] = lambda just: lambda nothing: lambda x: lambda startAt: lambda s: _indexOfStartingAtImpl(
     just, nothing, startAt, x, s
 )
 
