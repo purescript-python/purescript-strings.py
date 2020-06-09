@@ -4,6 +4,8 @@ import re
 def showRegexImpl(r):
     return "" + r
 
+globals()['showRegex'] = showRegexImpl
+
 
 def regexImpl(left):
     raise NotImplementedError("FFI Not implemented. Data.String.Regex.regexImpl")
@@ -18,6 +20,7 @@ def regexImpl(left):
 #           return left(e.message);
 #         }
 
+globals()['regexImpl'] = regexImpl
 
 def source(r):
     return r["source"]
@@ -32,6 +35,8 @@ def flagsImpl(r):
         "unicode": bool(r["unicode"]),
     }
 
+
+globals()['flags'] = regexImpl
 
 def test(r):
     raise NotImplementedError("FFI Not implemented. Data.String.Regex.test")
@@ -69,6 +74,7 @@ def replace(r):
 def replaceBy(r):
     raise NotImplementedError("FFI Not implemented. Data.String.Regex.replaceBy")
 
+globals()['replace'] = replaceBy
 
 #   return function (f) {
 #     return function (s2) {
