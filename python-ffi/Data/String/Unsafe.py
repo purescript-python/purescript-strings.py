@@ -1,6 +1,6 @@
 def charAt(i):
     def ap(s):
-        if i > 0 and i < len(s):
+        if i >= 0 and i < len(s):
             return s[i]
 
         raise IndexError("Data.String.Unsafe.charAt: Invalid index.")
