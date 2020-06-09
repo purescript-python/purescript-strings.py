@@ -58,6 +58,7 @@ def _indexOfPImpl(just, nothing, x, startAt, s: str):
 
 
 def _indexOfStartingAtImpl(just, nothing, x, startAt, s):
+    print(x, startAt, s)
     if startAt < 0 or startAt > len(s):
         return nothing
     i = s.find(x, startAt)
@@ -94,7 +95,7 @@ def _lastIndexOfStartAtImpl(just, nothing, x, startAt, s):
 
 globals()[
     "_lastIndexOf'"
-] = lambda just: lambda nothing: lambda startAt: lambda x: lambda s: _lastIndexOfStartAtImpl(
+] = lambda just: lambda nothing: lambda x: lambda startAt: lambda s: _lastIndexOfStartAtImpl(
     just, nothing, x, startAt, s
 )
 
