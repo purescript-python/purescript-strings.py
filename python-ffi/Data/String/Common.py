@@ -26,7 +26,10 @@ def replaceAll(s1):
 
 
 def split(sep):
-    return lambda s: s.split(sep)
+    if len(sep) == 0:
+        return lambda s: list(s)
+    else:
+        return lambda s: s.split(sep)
 
 
 def toLower(s):

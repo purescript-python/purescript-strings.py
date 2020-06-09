@@ -4,6 +4,7 @@ import re
 def showRegexImpl(r):
     return "" + r
 
+
 globals()["showRegex'"] = showRegexImpl
 
 
@@ -22,6 +23,7 @@ def regexImpl(left):
 
 globals()["regex'"] = regexImpl
 
+
 def source(r):
     return r["source"]
 
@@ -38,6 +40,7 @@ def flagsImpl(r):
 
 globals()["flags'"] = regexImpl
 
+
 def test(r):
     raise NotImplementedError("FFI Not implemented. Data.String.Regex.test")
 
@@ -49,8 +52,15 @@ def test(r):
 #     return result;
 
 
-def _match(just):
-    raise NotImplementedError("FFI Not implemented. Data.String.Regex._match")
+def _matchImpl(just, nothing, r, s):
+    m = re.match(r, s)
+    if m is None:
+        return nothing
+    else:
+        return just(m)
+
+
+_match = lambda j: lambda n: lambda r: lambda s: _matchImpl(j, n, r, s)
 
 
 #   return function (nothing) {
@@ -73,6 +83,7 @@ def replace(r):
 
 def replaceBy(r):
     raise NotImplementedError("FFI Not implemented. Data.String.Regex.replaceBy")
+
 
 globals()["replace'"] = replaceBy
 
