@@ -3,7 +3,7 @@ def fromCharArray(a):
 
 
 def toCharArray(s):
-    return s.split("")
+    return list(s)
 
 
 def singleton(c):
@@ -88,7 +88,7 @@ def _lastIndexOf(just):
 def _lastIndexOfStartAtImpl(just, nothing, x, startAt, s):
     if startAt < 0 or startAt > len(s):
         return nothing
-    i = s.rfind(x, startAt)
+    i = s.rfind(x, 0, startAt + len(x))
     return nothing if i == -1 else just(i)
 
 
@@ -106,11 +106,11 @@ def _lastIndexOfStartingAt(just):
 
 
 def take(n: int):
-    return lambda s: s[:n]
+    return lambda s: s[: max(n, 0)]
 
 
 def drop(n: int):
-    return lambda s: s[n:]
+    return lambda s: s[max(n, 0) :]
 
 
 def _slice(b):
@@ -118,4 +118,4 @@ def _slice(b):
 
 
 def splitAt(i):
-    return lambda s: {"before": s[:i], "after": s[i:]}
+    return lambda s: {"before": s[: max(i, 0)], "after": s[max(i, 0) :]}
