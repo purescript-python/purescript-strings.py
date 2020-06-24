@@ -63,6 +63,10 @@ def _indexOfStartingAtImpl(just, nothing, x, startAt, s):
     i = s.find(x, startAt)
     return nothing if i == -1 else just(i)
 
+def _indexOfStartingAt(just):
+    lambda just: lambda nothing: lambda x: lambda startAt: lambda s: _indexOfStartingAtImpl(
+    just, nothing, x, startAt, s
+)
 
 globals()[
     "_indexOf'"
