@@ -64,7 +64,7 @@ def _indexOfStartingAtImpl(just, nothing, x, startAt, s):
     return nothing if i == -1 else just(i)
 
 def _indexOfStartingAt(just):
-    return lambda just: lambda nothing: lambda x: lambda startAt: lambda s: _indexOfStartingAtImpl(
+    return lambda nothing: lambda x: lambda startAt: lambda s: _indexOfStartingAtImpl(
     just, nothing, x, startAt, s
 )
 
